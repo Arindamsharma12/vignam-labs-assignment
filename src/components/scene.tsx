@@ -28,7 +28,6 @@ export default function Scene() {
 
   return (
     <div className="relative w-full h-[90vh] md:h-screen ">
-      {/* 3D Background */}
       <Canvas
         camera={{
           position: isMobile ? [0, 0, 3] : [0, 0, 5],
@@ -44,7 +43,6 @@ export default function Scene() {
         </Suspense>
       </Canvas>
 
-      {/* HTML Overlay */}
       <div className="absolute px-3 top-0 left-0 w-full h-full py-5 flex flex-col items-center justify-between text-white z-10 pointer-events-none">
         <h1 className="text-2xl md:text-4xl text-center font-bold">
           Precision CNC Parts Shipped as Fast as Tomorrow.
