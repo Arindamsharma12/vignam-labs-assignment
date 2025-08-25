@@ -10,7 +10,7 @@ function HDRBackground() {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const texture = useLoader(
     EXRLoader,
-    isMobile ? "/forest.exr" : "/forest.exr"
+    isMobile ? "/fireplace_4k.exr" : "/fireplace_4k.exr"
   );
   texture.mapping = EquirectangularReflectionMapping;
   return <primitive attach="background" object={texture} />;
@@ -18,16 +18,16 @@ function HDRBackground() {
 
 function MotorModel() {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-  const { scene } = useGLTF("/motor.glb");
+  const { scene } = useGLTF("/programmer_desktop_3d_pc.glb");
   const ref = useRef<Mesh>(null);
-  return <primitive ref={ref} object={scene} scale={isMobile ? 0.5 : 1} />;
+  return <primitive ref={ref} object={scene} scale={isMobile ? 0.2 : 0.3} />;
 }
 
 export default function Scene() {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   return (
-    <div className="relative w-full h-[90vh] md:h-screen ">
+    <div className="relative w-full h-screen ">
       <Canvas
         camera={{
           position: isMobile ? [0, 0, 3] : [0, 0, 5],
@@ -43,18 +43,20 @@ export default function Scene() {
         </Suspense>
       </Canvas>
 
-      <div className="absolute px-3 top-0 left-0 w-full h-full py-5 flex flex-col items-center justify-between text-white z-10 pointer-events-none">
-        <h1 className="text-2xl md:text-4xl text-center font-bold">
-          Precision CNC Parts Shipped as Fast as Tomorrow.
-        </h1>
-        <div className="lg:w-[500px]">
-          <p className="text-center">
-            Update your CAD file, and we&apos;ll take care of matching,
-            finishing and shipping - accurate parts delievered fast, no stress
-          </p>
-          <button className="mt-6 px-6 py-3 w-full bg-blue-600 hover:bg-blue-700 rounded-lg pointer-events-auto">
-            Upload Your Design
-          </button>
+      <div className="absolute px-3 top-0 left-0 w-full h-full py-2 flex flex-col items-center mt-15 md:items-start text-white z-10 pointer-events-none">
+        <div className="flex flex-col bg-black opacity-55 p-4 gap-y-3">
+          <h1 className="text-5xl md:text-6xl font-bold">
+            <span className="text-green-500">Arindam Sharma</span>
+          </h1>
+          <h1 className="text-sky-500 font-semibold text-3xl">
+            Full Stack Wizard.
+          </h1>
+          <h1 className="text-sky-500 font-semibold text-3xl">Freelancer.</h1>
+          <h1 className="text-sky-500 font-semibold text-3xl">
+            Converts <span className="text-blue-700 font-bold">air</span> into
+            &nbsp;
+            <span className="text-blue-700 font-semibold">code.</span>
+          </h1>
         </div>
       </div>
     </div>
